@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pathlib import Path
 from custom_logging import CustomizeLogger
 from pymongo import MongoClient
+import uvicorn
 import schemas
 import json
 
@@ -61,3 +62,5 @@ async def get_persons(data: schemas.GetPersons):
     # соответственно из множества их комбинаций и пересечений.
 
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port="8000")
